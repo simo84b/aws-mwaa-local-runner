@@ -29,6 +29,9 @@ jobs:
     - name: Upload to S3
       run: | 
         aws s3 cp ./dags/cleanup.py s3://${{secrets.S3_BUCKET}}/dags/cleanup.py --region eu-central-1
+        aws s3 cp ./dags/crawler.py s3://${{secrets.S3_BUCKET}}/dags/crawler.py --region eu-central-1
+        aws s3 cp ./dags/glue_job.py s3://${{secrets.S3_BUCKET}}/dags/glue_job.py --region eu-central-1
+        aws s3 cp ./dags/main_orchestrator.py s3://${{secrets.S3_BUCKET}}/dags/main_orchestrator.py --region eu-central-1
 
     - name: Cleanup credentials
       run: rm -rf ~/.aws
